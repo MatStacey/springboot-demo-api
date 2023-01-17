@@ -12,7 +12,9 @@ import static org.monte.media.FormatKeys.*;
 import static org.monte.media.VideoFormatKeys.*;
 
 /***
- * This whole class was stolen from the internet. Needs a bit of tweaking to meet requirements
+ * This whole class was stolen from the internet. Needs a bit of tweaking to meet requirements. Very buggy
+ * 
+ * https://medium.com/@nisal444/screen-recorder-for-selenium-webdriver-with-testng-and-java-87287230ce7b 
  */
 public class CustomScreenRecorder extends ScreenRecorder {
 

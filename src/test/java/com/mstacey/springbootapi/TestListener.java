@@ -4,7 +4,7 @@ import org.testng.*;
 import java.io.File;
 
 /***
- * This whole class was stolen from the internet. Have tweaked a bit to meet requirements. Still needs tweaking.
+ * This whole class was stolen from the internet. Have tweaked a bit to meet requirements. Still needs tweaking. Very buggy
  * 
  * https://medium.com/@nisal444/screen-recorder-for-selenium-webdriver-with-testng-and-java-87287230ce7b 
  */

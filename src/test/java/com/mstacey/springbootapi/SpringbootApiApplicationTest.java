@@ -21,9 +21,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 @Listeners(TestListener.class)
 @SpringBootTest(classes = SpringbootApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
