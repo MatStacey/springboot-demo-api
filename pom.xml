@@ -64,11 +64,6 @@
 			<version>7.7.1</version>
 			<!-- <scope>test</scope> -->
 		</dependency>
-		<dependency>
-			<groupId>org.testcontainers</groupId>
-			<artifactId>selenium</artifactId>
-			<version>1.7.1</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
