@@ -3,6 +3,7 @@
     <test name="SpringbootApiApplicationTests" preserve-order="true" thread-count="10" parallel="methods">
         <classes>
             <class name="com.mstacey.springbootapi.SpringbootApiApplicationTest"/>
+            <class name="com.mstacey.springbootapi.SpringbootCucumberRunnerTest"/>
         </classes>
     </test>
 </suite>
