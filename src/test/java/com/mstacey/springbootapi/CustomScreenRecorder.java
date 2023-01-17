@@ -11,6 +11,9 @@ import java.nio.file.*;
 import static org.monte.media.FormatKeys.*;
 import static org.monte.media.VideoFormatKeys.*;
 
+/***
+ * This whole class was stolen from the internet. Needs a bit of tweaking to meet requirements
+ */
 public class CustomScreenRecorder extends ScreenRecorder {
 
     private String fileName;
@@ -27,6 +30,12 @@ public class CustomScreenRecorder extends ScreenRecorder {
                 movieFolder);
     }
 
+    
+    /** 
+     * @param fileFormat
+     * @return File
+     * @throws IOException
+     */
     @Override
     protected File createMovieFile(Format fileFormat) throws IOException {
         if (!movieFolder.exists()) {
@@ -39,6 +48,11 @@ public class CustomScreenRecorder extends ScreenRecorder {
         return currentFile;
     }
 
+    
+    /** 
+     * @param fileName
+     * @return File
+     */
     private File getFileWithUniqueName(String fileName) {
         String extension = "";
         String name = "";
@@ -57,11 +71,22 @@ public class CustomScreenRecorder extends ScreenRecorder {
         return new File(fileName);
     }
 
+    
+    /** 
+     * @param fileName
+     * @param captureMouse
+     * @throws IOException
+     */
     public void startRecording(String fileName, boolean captureMouse) throws IOException {
         this.fileName = fileName;
         start();
     }
 
+    
+    /** 
+     * @param keepFile
+     * @throws IOException
+     */
     public void stopRecording(boolean keepFile) throws IOException {
         stop();
         if (!keepFile) {

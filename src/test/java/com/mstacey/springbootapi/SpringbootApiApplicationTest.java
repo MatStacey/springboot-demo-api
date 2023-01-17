@@ -25,7 +25,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-
 @Listeners(TestListener.class)
 @SpringBootTest(classes = SpringbootApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTests {
@@ -63,6 +62,12 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 		driver.close();
 	}
 
+	
+	/** 
+	 * Test greeting endpoint with mockmvc driver
+	 * 
+	 * @throws Exception mockmvc can blow up
+	 */
 	@Test(description = "Greeting Test")
 	public void testGreeting() throws Exception {
 		logger.info("[INFO] Testing greeting endpoint with mockmvc");
@@ -70,6 +75,12 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 		.andExpect(status().isOk());
 	}
 
+	
+	/** 
+	 * Test greeting endpoint with selenium driver
+	 * 
+	 * @throws Exception selenium can blow up
+	 */
 	@Test(description = "Selenium Test")
 	public void testSelenium() throws Exception {
 		logger.info("[INFO] Testing greeting endpoint with selenium");
