@@ -4,7 +4,10 @@ This is a sample Java API using:
 
 - Maven
 - Springboot
-- Selenium
-    - Custom Screen Recorder
+- SL4J Logging
 - TestNG
-- Checkstyle (google)
+- Selenium
+- Cucumber
+- Checkstyle (google style)
+- Jacoco Coverage Report
+- Custom Screen Recorder
