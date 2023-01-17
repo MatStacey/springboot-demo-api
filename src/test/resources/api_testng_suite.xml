@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="APITestingSuite">
+    <test name="SpringbootApiApplicationTests" preserve-order="true" thread-count="10" parallel="methods">
+        <classes>
+            <class name="com.mstacey.springbootapi.SpringbootApiApplicationTest"/>
+        </classes>
+    </test>
+</suite>
