@@ -1,9 +1,7 @@
 package com.mstacey.springbootapi;
 
 import org.testng.*;
-import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 
 
 public class TestListener implements ITestListener {
