@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Greeting {
-    
+
     private long id;
     private String name;
 

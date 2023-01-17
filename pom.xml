@@ -69,7 +69,12 @@
 			<artifactId>selenium</artifactId>
 			<version>1.7.1</version>
 		</dependency>
-<!-- Thanks for using https://jar-download.com -->
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>3.2.1</version>
+		</dependency>
 
 	</dependencies>
 
@@ -97,5 +102,18 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<reporting>
+		<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>3.2.1</version>
+			<configuration>
+			<configLocation>src\test\resources\checkstyle.xml</configLocation>
+			</configuration>
+		</plugin>
+		</plugins>
+	</reporting>
 
 </project>

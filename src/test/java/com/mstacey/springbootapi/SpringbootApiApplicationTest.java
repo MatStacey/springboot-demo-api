@@ -1,31 +1,23 @@
 package com.mstacey.springbootapi;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilitiesUtils;
-import org.openqa.selenium.remote.DesiredCapabilities;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import org.testcontainers.containers.BrowserWebDriverContainer;
-import org.testng.annotations.AfterClass;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -53,6 +45,7 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
                  .build();
 		System.setProperty("webdriver.chrome.driver", "C:\\scm\\tools\\chromedriver.exe");
 		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		this.base = "http://localhost:" + port;
 		
 	}
@@ -65,6 +58,7 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 
 	@Test(description = "Selenium Test")
 	public void testSelenium() {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(base + "/greeting");
 		driver.close();
 	}

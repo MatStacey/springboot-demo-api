@@ -13,10 +13,9 @@ public class TestListener implements ITestListener {
 
     public TestListener() {
         try {
-            //this is the location that we are going to save the recorded file
             screenRecorder = new CustomScreenRecorder(new File(System.getProperty("user.dir") + "/target/screen-records"));
-        } catch (IOException | AWTException e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("[ERROR] Could not create screen recorder" + e.getMessage());
         }
     }
 
@@ -24,8 +23,8 @@ public class TestListener implements ITestListener {
     public void onTestStart(ITestResult iTestResult) {
         try {
             screenRecorder.startRecording(iTestResult.getClass().getSimpleName() + "-" + iTestResult.getMethod().getMethodName(), true);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("[ERROR]" + e.getMessage());
         }
     }
 
@@ -39,7 +38,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         System.out.println("Test FAILED " + iTestResult.getTestClass().getName() + " - " + iTestResult.getMethod().getMethodName());
-        stopScreenRecording(true);
+        stopScreenRecording(false);
     }
 
     @Override
@@ -50,23 +49,25 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+        System.out.println("Test Failed but within accepted range" + iTestResult.getTestName());
     }
 
     @Override
     public void onStart(ITestContext iTestContext) {
+        System.out.println("Starting Test" + iTestContext.getName());
 
     }
 
     @Override
     public void onFinish(ITestContext iTestContext) {
-
+        System.out.println("Finished Test" + iTestContext.getName());
     }
 
     private void stopScreenRecording(boolean keepFile) {
         try {
             screenRecorder.stopRecording(keepFile);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("[ERROR] Could not stop recording: " + e.getMessage());
         }
     }
 }
