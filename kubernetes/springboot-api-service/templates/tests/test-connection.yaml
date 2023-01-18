@@ -1,0 +1,21 @@
+---
+# Source: springboot-api-service/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "release-name-springboot-api-service-test-connection"
+  labels:
+    helm.sh/chart: springboot-api-service-0.1.0
+    app.kubernetes.io/name: springboot-api-service
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "latest"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['release-name-springboot-api-service:80']
+  restartPolicy: Never
