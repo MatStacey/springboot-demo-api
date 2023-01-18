@@ -11,3 +11,6 @@ This is a sample Java API using:
 - Checkstyle (google style)
 - Jacoco Coverage Report
 - Custom Screen Recorder
+- Dockerfile
+- Github Action maven build
+- Helm charts
