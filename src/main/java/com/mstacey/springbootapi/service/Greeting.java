@@ -1,4 +1,4 @@
-package com.mstacey.springbootapi;
+package com.mstacey.springbootapi.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

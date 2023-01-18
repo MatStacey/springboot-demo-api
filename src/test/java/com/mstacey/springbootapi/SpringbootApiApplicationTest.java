@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.time.Duration;
 
+import org.apache.commons.lang.SystemUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -22,14 +23,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 @Listeners(TestListener.class)
 @SpringBootTest(classes = SpringbootApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Slf4j
 public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTests {
-
-	private static Logger logger = LoggerFactory.getLogger(SpringbootApiApplicationTest.class);
 
 	@Autowired
 	private WebApplicationContext webApplicationContext;
@@ -45,11 +44,10 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 
 	@BeforeClass
 	public void setup() {
-		logger.info("[INFO] Started setting up test environment");
+		log.info("[INFO] Started setting up test environment");
 		mockMvc = MockMvcBuilders
                  .webAppContextSetup(webApplicationContext)
                  .build();
-
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
@@ -57,7 +55,7 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		this.base = "http://localhost:" + port;
-		logger.info("[INFO] Finished setting up test environment");
+		log.info("[INFO] Finished setting up test environment");
 		
 	}
 
@@ -74,7 +72,7 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 	 */
 	@Test(description = "Greeting Test")
 	public void testGreeting() throws Exception {
-		logger.info("[INFO] Testing greeting endpoint with mockmvc");
+		log.info("[INFO] Testing greeting endpoint with mockmvc");
 		mockMvc.perform(get(GREETING_ENDPOINT))
 		.andExpect(status().isOk());
 	}
@@ -87,10 +85,8 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 	 */
 	@Test(description = "Selenium Test")
 	public void testSelenium() throws Exception {
-		logger.info("[INFO] Testing greeting endpoint with selenium");
+		log.info("[INFO] Testing greeting endpoint with selenium");
 		driver.get(base + GREETING_ENDPOINT);
-		logger.info("[INFO] zzzzzzz for 5 seconds");
-		Thread.sleep(5000);
 	}
 
 }

@@ -3,8 +3,6 @@ package com.mstacey.springbootapi.steps;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -18,12 +16,13 @@ import com.mstacey.springbootapi.SpringbootApiApplication;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.spring.CucumberContextConfiguration;
+import lombok.extern.slf4j.Slf4j;
 
 @CucumberContextConfiguration
+@Slf4j
 @SpringBootTest(classes = SpringbootApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CucumberStepsTest extends AbstractTestNGSpringContextTests {
 
-    private static Logger logger = LoggerFactory.getLogger(CucumberStepsTest.class);
 
 	@Autowired
 	private WebApplicationContext webApplicationContext;
@@ -37,7 +36,7 @@ public class CucumberStepsTest extends AbstractTestNGSpringContextTests {
 
     @When("^the client calls /greeting$")
     public void the_client_issues_GET_greeting() throws Throwable{
-		logger.info("[INFO] Testing greeting endpoint with mockmvc");
+		log.info("[INFO] Testing greeting endpoint with mockmvc");
 		mockMvc = MockMvcBuilders
                  .webAppContextSetup(webApplicationContext)
                  .build();
