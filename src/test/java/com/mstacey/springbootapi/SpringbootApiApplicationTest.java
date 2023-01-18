@@ -8,7 +8,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.test.context.SpringBootTest;
@@ -49,7 +49,12 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 		mockMvc = MockMvcBuilders
                  .webAppContextSetup(webApplicationContext)
                  .build();
-		driver = new ChromeDriver();
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--headless");
+		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		this.base = "http://localhost:" + port;
 		logger.info("[INFO] Finished setting up test environment");
