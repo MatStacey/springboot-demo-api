@@ -25,7 +25,7 @@ import org.testng.annotations.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// @Listeners(TestListener.class)
+@Listeners(TestListener.class)
 @SpringBootTest(classes = SpringbootApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTests {
 
