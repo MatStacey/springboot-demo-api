@@ -89,7 +89,7 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 	public void testSelenium() throws Exception {
 		logger.info("[INFO] Testing greeting endpoint with selenium");
 		driver.get(base + GREETING_ENDPOINT);
-		logger.info("[INFO] zzzzzzz");
+		logger.info("[INFO] zzzzzzz for 5 seconds");
 		Thread.sleep(5000);
 	}
 
