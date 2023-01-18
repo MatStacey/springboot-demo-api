@@ -49,7 +49,6 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 		mockMvc = MockMvcBuilders
                  .webAppContextSetup(webApplicationContext)
                  .build();
-		System.setProperty("webdriver.chrome.driver", "C:\\scm\\tools\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		this.base = "http://localhost:" + port;
@@ -86,7 +85,7 @@ public class SpringbootApiApplicationTest extends AbstractTestNGSpringContextTes
 		logger.info("[INFO] Testing greeting endpoint with selenium");
 		driver.get(base + GREETING_ENDPOINT);
 		logger.info("[INFO] zzzzzzz");
-		Thread.sleep(2500);
+		Thread.sleep(5000);
 	}
 
 }
